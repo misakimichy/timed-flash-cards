@@ -1,6 +1,6 @@
-export default class FlashCard { 
+export default class FlashCard {
   constructor (score) {
-    this.score = score; 
+    this.score = score;
     this.questions = {
       card1: {
         question: "What is the complement to the object.(?):pair?",
@@ -24,17 +24,30 @@ export default class FlashCard {
   //   this.render();
   // }
 
+  // Show each question in every 10 seconds
   setDisplay() {
     const getCard = () => {
       Object.values(this.questions).map(card => {
-      console.log("card: ", card);
-      console.log("Card's question: ", card.question);
-
-      setTimeout(() => {alert(card.question)}, 1000);
+        // console.log("card: ", card);
+        // console.log("Card's question: ", card.question);
+        // setTimeout(() => {alert(card.question)}, 10000);
       })
     };
     console.log(getCard());
-    
-    // clearInterval(intervalId);
   }
+
+  checkAnswer(answerVal){
+    let userAnsArr = [];
+    let ansArr = Object.values(this.questions).map(card => {
+      return card.answer;
+    });
+    let count = this.score;
+    userAnsArr.push(answerVal);
+
+    for (let i =0; i < userAnsArr.length; i++){
+      (ansArr.includes(userAnsArr[i]))?
+          count++ : count--;
+    }
+      return count;
+    }
 }
