@@ -9,13 +9,13 @@
 <body>
     <div class="container">
         <h1>Timed Flash Cards</h1>
-        <form class="card form-group">
-          <div class="select-container">
+        <form id="card">
+          <div class="select-container form-group">
             <label for="option1">
-                <input type="radio" name="card" value=1 id="option1">True <br>
+                <input type="radio" name="card" value=1 id="option1" required>True <br>
             </label>
             <label for="option2">
-                <input type="radio" name="card" value=2 id="option2">False <br>
+                <input type="radio" name="card" value=2 id="option2" required>False <br>
             </label>
           </div>
           <button class="btn btn-info" type="submit">Answer!</button>
