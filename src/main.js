@@ -1,5 +1,8 @@
-export const hello = () => {
-  return "Hello";
-};
+import { FlashCard } from "./theFlashCard.js";
+import $ from "jquery";
 
-hello();
+$(document).ready(function() {
+    
+let newCard = new FlashCard(score, questions);
+
+});
