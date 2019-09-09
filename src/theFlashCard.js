@@ -3,15 +3,15 @@ export default class FlashCard {
     this.score = score;
     this.questions = {
       card1: {
-        question: "What is the complement to the object.(?):pair?",
+        question: "The complement to the object.(?):pair is 'key'.",
         answer: 1
       },
       card2: {
-        question: "What is jQuery?",
+        question: "The jQuery is a question.",
         answer: 2
       },
       card3: {
-        question: "What flavor is JavaScript?",
+        question: "The flavor of JavaScript is chocolate.",
         answer: 2
       }
     };
