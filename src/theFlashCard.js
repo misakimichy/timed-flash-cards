@@ -25,12 +25,16 @@ export default class FlashCard {
   // }
 
   setDisplay() {
+    const getCard = () => {
+      Object.values(this.questions).map(card => {
+      console.log("card: ", card);
+      console.log("Card's question: ", card.question);
 
-    return this.questions;
-
-    // const intervalId = setInterval(Object.values(questions).map(question => {
-    //   console.log(question, this.score);
-    // }, 1000));
-    // return intervalId;
+      setTimeout(() => {alert(card.question)}, 1000);
+      })
+    };
+    console.log(getCard());
+    
+    // clearInterval(intervalId);
   }
 }
