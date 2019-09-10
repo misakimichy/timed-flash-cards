@@ -1,5 +1,5 @@
 export default class FlashCard {
-  constructor (score) {
+  constructor (score = 0) {
     this.score = score;
     this.questions = {
       card1: {
