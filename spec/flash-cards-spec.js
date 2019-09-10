@@ -11,15 +11,15 @@ describe('Testing the display of the question', function() {
 // - Spec: Capture a chosen value for user answer. 
 // Input: T
 // Output: T
-  it('should check answer and change the score', function() {
-    let answerVal = 1;
-    let currentCard = newCard.questions.card1;
-    expect(newCard.checkAnswer(answerVal, currentCard)).toEqual(1);
+  it('should return the score', function() {
+    let userAnsArr = [1, 2, 2];
+    expect(newCard.checkAnswer(userAnsArr)).toEqual(3);
   });
 
 // - Spec: If user does not select an answer, display message "Please select an answer". 
 // Input: N/A
 // Output: "Please select an answer"
+// spec fulfilled by <input 'required' />
 
 // - Spec: If user chooses a correct answer, increment points.
 // Input: T (correct answer)
