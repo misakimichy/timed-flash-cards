@@ -43,12 +43,12 @@ export default class FlashCard {
     }
   }
 
-  checkAnswer(answerVal, currentCard) {
-    let userAnsArr = [];
-    let currentAnswer = currentCard.answer;
-    userAnsArr.push(answerVal);
+  checkAnswer(userAnsArr) {
+    const answers = Object.values(this.questions).map(card => {
+      return card.answer;
+    });
     for (let i = 0; i < userAnsArr.length; i++){
-      (userAnsArr[i] === currentAnswer) ? this.score++ :this.score--;
+      (userAnsArr[i] === answers[i]) ? this.score++ :this.score--;
     }
       return this.score;
   }

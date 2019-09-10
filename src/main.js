@@ -21,7 +21,7 @@ $(document).ready(function() {
     } else {
       alert("No more cards!");
       $("#card").hide();
-      $("#result").text(newCard.checkAnswer(userAnsArr));
+      $("#score").text(newCard.checkAnswer(userAnsArr));
       $("#result").show();
     }
   };
