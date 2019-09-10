@@ -29,7 +29,7 @@ export default class FlashCard {
     const questionList = Object.values(this.questions).map(card => {
       return card.question;
     });
-    // this.displayMessage();
+      // this.displayMessage();
     return questionList;
   }
 
@@ -52,5 +52,4 @@ export default class FlashCard {
     }
       return this.score;
   }
-
 }
