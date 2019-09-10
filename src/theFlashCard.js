@@ -27,36 +27,30 @@ export default class FlashCard {
   // Show each question in every 10 seconds
   setDisplay() {
     const questionList = Object.values(this.questions).map(card => {
-      console.log(card.question);
       return card.question;
     });
-    return questionList;
     // this.displayMessage();
+    return questionList;
   }
 
   displayMessage() {
     let time = setTimeout(() => {
       alert("Timeout/lose point; Better luck next time!");
     }, 5000);
-    //this.checkAnswer(answerVal);
+    // this.checkAnswer(answerVal);
     function myStopFunction() {
       clearTimeout(time);
     }
   }
 
-  checkAnswer(answerVal){
+  checkAnswer(answerVal, currentCard) {
     let userAnsArr = [];
-    let ansArr = Object.values(this.questions).map(card => {
-      return card.answer;
-    });
-    let count = this.score;
+    let currentAnswer = currentCard.answer;
     userAnsArr.push(answerVal);
-
-    for (let i =0; i < userAnsArr.length; i++){
-      (ansArr.includes(userAnsArr[i]))?
-          count++ : count--;
+    for (let i = 0; i < userAnsArr.length; i++){
+      (userAnsArr[i] === currentAnswer) ? this.score++ :this.score--;
     }
-      return count;
+      return this.score;
   }
 
 }

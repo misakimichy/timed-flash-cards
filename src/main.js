@@ -6,13 +6,13 @@ import FlashCard from "./theFlashCard.js";
 
 $(document).ready(function() {
   const newCard = new FlashCard(0);
-  console.log("Show me the return", newCard.setDisplay());
   $("form#card").prepend(`<h2>${newCard.setDisplay()[0]}</h2>`);
 
   $("form").submit(function(event){
     event.preventDefault();
-    newCard.displayMessage();
-    let answerVal = document.getElementsByName("card").value;
-    newCard.checkAnswer(answerVal);
+    // newCard.displayMessage();
+    let answerVal = parseInt($("input[name=card]:checked").val());
+    let currentCard = newCard.questions.card1;
+    console.log(newCard.checkAnswer(answerVal, currentCard));
   });
 });
