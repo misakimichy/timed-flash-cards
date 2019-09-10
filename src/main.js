@@ -29,12 +29,14 @@ $(document).ready(function() {
   const showQuestion = () => {
     const questions = newCard.setDisplay();
     if (questionIndex < questions.length){
-      return questions[questionIndex];
+      $("form#card").prepend(`<h2>${questions[questionIndex]}</h2>`);
+      return ;
     } else {
       alert("No more cards!");
+      $("#card").empty();
     }
   };
-  $("form#card").prepend(`<h2>${showQuestion()}</h2>`);
+  showQuestion();
   $("form").submit(function(event){
     event.preventDefault();
     clearInput();
@@ -44,6 +46,6 @@ $(document).ready(function() {
     
     questionIndex++;
     cardIndex++;
-    $("form#card").prepend(`<h2>${showQuestion()}</h2>`);
+    showQuestion();
   });
 });
