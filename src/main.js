@@ -13,6 +13,18 @@ const clearInput = () => {
 $(document).ready(function() {
   
   const newCard = new FlashCard();
+  let cardIndex = 0;
+  const showCard = () => {
+    const cards = Object.keys(newCard.questions).map(card => {
+      return card;
+    });
+    if(cardIndex < cards.length) {
+      return cards[cardIndex];
+    } else {
+      return false;
+    }
+  };
+
   let questionIndex = 0;
   const showQuestion = () => {
     const questions = newCard.setDisplay();
@@ -22,15 +34,16 @@ $(document).ready(function() {
       alert("No more cards!");
     }
   };
-
+  $("form#card").prepend(`<h2>${showQuestion()}</h2>`);
   $("form").submit(function(event){
     event.preventDefault();
     clearInput();
-    $("form#card").prepend(`<h2>${showQuestion()}</h2>`);
-    // newCard.displayMessage();
+    
     let answerVal = parseInt($("input[name=card]:checked").val());
-    let currentCard = newCard.questions.card1;
+    console.log(newCard.checkAnswer(answerVal, showCard()));
     
     questionIndex++;
+    cardIndex++;
+    $("form#card").prepend(`<h2>${showQuestion()}</h2>`);
   });
 });
